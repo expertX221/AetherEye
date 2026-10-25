@@ -7,7 +7,7 @@ import type { Region,OverlayMode } from '../analysis/types';
 const W=8.7,H=5.8;
 function CameraRequests({zoom,reset}:{zoom:number;reset:number}){
  const {camera,controls}=useThree();
- useEffect(()=>{if(!zoom)return;camera.position.multiplyScalar(zoom>0?.85:1.15);camera.updateProjectionMatrix()},[zoom,camera]);
+ useEffect(()=>{if(!zoom)return;const target=(controls as unknown as {target?:THREE.Vector3})?.target??new THREE.Vector3(0,-.2,0);const offset=camera.position.clone().sub(target);const length=offset.length();const bounded=THREE.MathUtils.clamp(length*(zoom>0?.85:1.15),5.6,26);if(length>0)camera.position.copy(target).addScaledVector(offset,bounded/length);camera.updateProjectionMatrix()},[zoom,camera]);
  useEffect(()=>{camera.position.set(9.2,7.7,10.8);camera.lookAt(0,-.2,0);camera.updateProjectionMatrix();(controls as unknown as {target?:THREE.Vector3;update?:()=>void})?.target?.set(0,-.2,0);(controls as unknown as {update?:()=>void})?.update?.()},[reset,camera,controls]);
  return null;
 }
