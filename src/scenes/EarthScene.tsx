@@ -5,13 +5,13 @@ import * as THREE from 'three';
 
 function CameraRequests({zoom, reset}: {zoom:number;reset:number}) {
  const {camera, controls}=useThree();
- useEffect(()=>{ if(!zoom) return; camera.position.multiplyScalar(zoom>0 ? .85:1.16); camera.updateProjectionMatrix(); },[zoom,camera]);
+ useEffect(()=>{ if(!zoom) return; const length=camera.position.length(); const bounded=THREE.MathUtils.clamp(length*(zoom>0 ? .85:1.16),3.2,10.5); if(length>0)camera.position.multiplyScalar(bounded/length); camera.updateProjectionMatrix(); },[zoom,camera]);
  useEffect(()=>{ camera.position.set(0,1,6.7); camera.lookAt(0,0,0); camera.updateProjectionMatrix(); (controls as unknown as {target?:THREE.Vector3;update?:()=>void})?.target?.set(0,0,0); (controls as unknown as {update?:()=>void})?.update?.();},[reset,camera,controls]);
  return null;
 }
-function Satellite({phase}:{phase:number}){
+function Satellite({phase,motion}:{phase:number;motion:boolean}){
  const g=useRef<THREE.Group>(null);
- useFrame(({clock})=>{if(g.current){const a=clock.elapsedTime*.12+phase;g.current.position.set(Math.sin(a)*3.35, .6+Math.cos(a*.7)*.32,Math.cos(a)*3.35);g.current.rotation.y=a}});
+ useFrame(({clock})=>{if(motion&&g.current){const a=clock.elapsedTime*.12+phase;g.current.position.set(Math.sin(a)*3.35, .6+Math.cos(a*.7)*.32,Math.cos(a)*3.35);g.current.rotation.y=a}});
  return <group ref={g} scale={.22}>
   <mesh><boxGeometry args={[.8,.42,.55]}/><meshStandardMaterial color="#bac9da" metalness={.78} roughness={.25}/></mesh>
   {[-1,1].map((s)=><mesh key={s} position={[s*1.85,0,0]}><boxGeometry args={[2.65,.06,.84]}/><meshStandardMaterial color="#16618c" metalness={.28} roughness={.4} emissive="#063e6d" emissiveIntensity={.5}/></mesh>)}
@@ -32,8 +32,8 @@ function Globe({motion}:{motion:boolean}){
    <torusGeometry args={[2.74+x*.23,.0038,5,160]}/><meshBasicMaterial color={x===0?'#43d8fa':'#275c89'} transparent opacity={x===0?.6:.37}/>
   </mesh>)}
   <group position={[0,0,0]}><mesh rotation={[Math.PI/2.1,-.3,0]}><torusGeometry args={[2.34,.005,5,180]}/><meshBasicMaterial color="#5bcfee" transparent opacity={.28}/></mesh></group>
-  <Satellite phase={0}/>
-  <Satellite phase={2.8}/>
+  <Satellite phase={0} motion={motion}/>
+  <Satellite phase={2.8} motion={motion}/>
  </>;
 }
 export default function EarthScene({zoom,reset,reducedMotion}:{zoom:number;reset:number;reducedMotion:boolean}) {
