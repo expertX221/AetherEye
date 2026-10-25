@@ -12,3 +12,180 @@
 @media(max-width:1120px){.workspace{grid-template-columns:205px minmax(0,1fr);height:auto;max-height:none;min-height:calc(100vh - 82px)}.workspace:has(.side-left.collapsed){grid-template-columns:0 minmax(0,1fr)}.right-pane{grid-column:2;flex-direction:column;min-height:480px;max-height:650px;border-top:1px solid #284f68}.right-top{padding:21px}.right-top h2{font-size:25px}.central{min-height:720px}.side-left{grid-row:1 / span 2}.header-date{display:none}.stage{min-height:480px}.scene-title h1{font-size:36px}}
 @media(max-width:730px){.header-bar{height:66px;padding:0 12px;gap:8px}.brand{min-width:0;gap:8px}.brand-mark{width:34px;height:34px}.brand-mark svg{width:23px}.brand-name{font-size:20px}.brand-sub{display:none}.main-tabs{gap:0;margin-left:auto}.nav-btn{min-width:0;padding:0 8px;font-size:0}.nav-btn svg{width:18px}.header-end{margin-left:0}.header-end .btn{padding:0 11px;min-height:36px}.header-end .btn span{display:none}.workspace{display:flex;flex-direction:column;min-height:0}.side-left{display:none}.central{min-height:690px}.right-pane{max-height:620px;min-height:450px}.stage-head{height:38px;padding:0 12px}.stage-overline{top:15px;left:15px;right:14px;font-size:7px}.stage{min-height:475px}.scene-title{left:16px;top:53px;width:65%}.scene-title h1{font-size:31px}.scene-title p{font-size:10px;line-height:1.45;margin-top:12px}.view-controls{top:50px;right:12px;flex-direction:column;align-items:flex-end;gap:3px}.view-controls>span{display:none}.seg{padding:3px;flex-direction:column;border-radius:10px}.seg button{padding:7px 10px}.scene-viewport{inset:10% -22% 5% -22%}.stage-wash{background:linear-gradient(90deg,#03101dcc,transparent 60%)}.tool-rail{left:12px;top:auto;bottom:66px;flex-direction:row;padding:4px}.tool-rail div{width:1px;height:25px;margin:3px}.tool-rail button{width:30px;height:30px}.scene-legend{bottom:23px;left:16px;gap:9px}.stage-bottom-right{right:12px;bottom:9px;max-width:60%;font-size:7px}.twod-stage{top:30%;left:5%;width:90%}.globe-hud{bottom:18%;left:6%;padding:11px;max-width:290px}.globe-keyline{font-size:8px}.coordinate{font-size:14px}.globe-caption{font-size:8px}.descend-btn{font-size:9px;padding:10px}.lower-panel{height:110px;gap:10px;padding:0 10px}.timeline-left{width:110px}.lower-kicker{font-size:7px}.timeline-left strong{font-size:11px}.timeline-left small{font-size:8px}.timeline-labels span{font-size:8px}.timeline-labels strong{display:block;font-size:8px}.compare-launch{font-size:0;min-width:39px;padding:10px}.compare-launch svg{width:18px}.foot-status{padding:0 12px}.foot-status span:nth-child(2){display:none}.right-top{padding:22px 18px}.intel-scroll{padding:17px}.modal{padding:18px}.file-pair{gap:9px}.file-drop{padding:16px 7px}.file-drop b{font-size:11px}.form-grid{gap:9px}.modal-actions{flex-direction:column}.report-stat-grid{grid-template-columns:repeat(2,1fr)}.full-stage-content{inset:14% 5% 9%}.full-stage-content h1{font-size:40px}.analytics-big{grid-template-columns:repeat(2,1fr)}.exports-grid{grid-template-columns:1fr;overflow:auto}.exports-grid button{min-height:68px}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
+
+
+/* AetherEye 3.1 — legibility, responsive containment and zero-collision layout.
+   The previous fixed-height dashboard and 7–12px microcopy made content unreadable. */
+:root{font-size:16px;color-scheme:dark}
+html{scroll-behavior:smooth}
+body{overflow-x:hidden}
+.app-shell{min-width:320px;overflow-x:clip}
+.app-shell *{min-width:0}
+.app-shell button,.app-shell input,.app-shell select,.app-shell label{font-size:14px}
+.app-shell button{min-height:38px}
+.app-shell :is(p,small,span,b,strong,label,button,output){overflow-wrap:anywhere}
+.app-shell :is(.eyebrow,.field-label,.rail-section-title,.lower-kicker,.section-heading,.metric-top,.metric-sub,.brand-sub,.tag-mini,.id-badge,.stage-overline,.seq,.data-indicator,.coordinate,.globe-caption,.hint-text,.scene-micro,.timeline-labels,.live-tag,.status-led,.region-index,.relative-strength,.region-foot,.report-caveat,.control-label,.control-help,.control-select,.hist-legend,.filter-strip,.plane-stamp,.foot-status,.brand-name sup,.location-small,.dataset b,.dataset small,.checks,.left-bottom,.crumb,.stage-head-right,.scene-title p,.view-controls>span,.seg button,.legend-line,.globe-keyline,.descend-btn,.scene-pin,.twod-tag,.pin-2d,.timeline-left small,.timeline-labels strong,.compare-launch,.right-top>p,.intel-tabs button,.filter-strip select,.region-title,.region-card p,.empty-state b,.empty-state small,.why-box strong,.why-box p,.right-bottom>p,.bottom-security,.toggle-row,.overlay-options button,.stats-table>div,.hist-legend span,.full-stage-content>p,.toast,.modal>p,.file-drop span,.form-grid label,.form-grid input,.report-images span,.report-stat-grid span,.report-summary b,.report-summary small,.export-actions button,.small-link,.running-status,.scene-error,.stage-bottom-right,.right-bottom p,.metric-grid .metric-top,.report-stat-grid b){font-size:14px!important;line-height:1.5}
+.app-shell .brand-name sup{font-size:14px!important;letter-spacing:0}
+.app-shell .brand-sub{letter-spacing:.5px}
+.app-shell .metric-value{white-space:normal;overflow:visible;text-overflow:clip;overflow-wrap:anywhere;font-size:clamp(19px,1.65vw,24px);line-height:1.2}
+.app-shell .dataset b,.app-shell .dataset small{white-space:normal;overflow:visible;text-overflow:clip}
+.app-shell .dataset{min-height:68px}
+.app-shell .dataset img{width:58px;height:54px;flex-shrink:0}
+.app-shell .tag-mini{white-space:normal}
+.app-shell .region-card{padding:16px}
+.app-shell .region-card p{line-height:1.65}
+.app-shell .report-summary{max-height:none;overflow:visible}
+.app-shell .report-summary small{margin-left:0}
+.app-shell .hist-legend{gap:9px;line-height:1.25}
+.app-shell .hist-chart{height:215px;padding-bottom:45px}
+.app-shell .modal{max-height:calc(100dvh - 28px);overscroll-behavior:contain}
+.app-shell .file-drop b{white-space:normal;text-align:center}
+.app-shell .form-grid label{line-height:1.5}
+.app-shell .btn{min-height:46px;white-space:normal;text-align:center}
+.app-shell .nav-btn{font-size:14px!important;white-space:nowrap}
+.app-shell .header-bar{height:auto;min-height:88px;gap:clamp(12px,2vw,34px);padding:12px clamp(14px,2vw,30px)}
+.app-shell .brand{min-width:fit-content}
+.app-shell .brand-name{font-size:clamp(24px,2vw,30px)}
+.app-shell .main-tabs{min-width:0}
+.app-shell .nav-btn{min-width:110px;padding:12px 14px}
+.app-shell .header-end{min-width:0;gap:14px}
+.app-shell .header-end .btn{white-space:nowrap}
+.app-shell .workspace{height:auto;max-height:none;min-height:calc(100dvh - 88px);grid-template-columns:minmax(268px,285px) minmax(0,1fr) minmax(350px,380px)}
+.app-shell .workspace:has(.side-left.collapsed){grid-template-columns:0 minmax(0,1fr) minmax(350px,380px)}
+.app-shell .side-left,.app-shell .right-pane{min-width:0;max-height:none;overflow:visible}
+.app-shell .side-left{padding:22px 17px;gap:0}
+.app-shell .metric-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.app-shell .metric{padding:13px 11px}
+.app-shell .central{min-height:830px;overflow:hidden}
+.app-shell .stage{min-height:620px}
+.app-shell .stage-head{height:auto;min-height:52px;gap:10px;flex-wrap:wrap;padding:12px 22px}
+.app-shell .stage-head-right{flex-wrap:wrap;justify-content:flex-end}
+.app-shell .stage-overline{top:24px}
+.app-shell .scene-title{top:80px;max-width:310px;width:35%}
+.app-shell .scene-title p{max-width:280px;line-height:1.65}
+.app-shell .view-controls{top:86px;right:20px;max-width:55%;flex-wrap:wrap;justify-content:flex-end}
+.app-shell .seg{flex-wrap:wrap}
+.app-shell .seg button{min-width:62px}
+.app-shell .scene-viewport{inset:3% 0 7% 0}
+.app-shell .scene-viewport canvas{animation:aethereye-scene-reveal .65s cubic-bezier(.2,.75,.2,1) both}
+.app-shell .tool-rail{top:43%}
+.app-shell .lower-panel{height:auto;min-height:148px;flex-wrap:wrap;padding:20px 22px;gap:16px}
+.app-shell .timeline-left{width:clamp(155px,17vw,220px)}
+.app-shell .timeline-main{flex:1 1 180px}
+.app-shell .timeline-main input[type=range]{height:22px;margin:12px 0 2px}
+.app-shell .foot-status{height:auto;min-height:42px;padding:9px 20px;flex-wrap:wrap;gap:10px}
+.app-shell .right-pane{display:flex;flex-direction:column}
+.app-shell .right-top{padding:25px 22px}
+.app-shell .right-top h2{font-size:clamp(25px,2vw,30px)}
+.app-shell .intel-tabs{gap:5px;padding:0 12px}
+.app-shell .intel-tabs button{flex:1;min-width:0;padding:13px 7px}
+.app-shell .intel-scroll{overflow:visible;flex:1;min-height:0;padding:22px 18px}
+.app-shell .right-bottom{padding:20px}
+.app-shell .overlay-options{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.app-shell .overlay-options button{min-height:44px}
+.app-shell .full-stage-content{position:relative;inset:auto;padding:72px clamp(18px,4vw,52px) 45px;max-width:100%;width:100%;overflow:visible}
+.app-shell .stage:has(.full-stage-content){overflow:auto;min-height:760px}
+.app-shell .analytics-big{grid-template-columns:repeat(3,minmax(0,1fr))}
+.app-shell .exports-grid{grid-template-columns:repeat(2,minmax(0,1fr));max-width:850px}
+.app-shell .exports-grid button{min-height:110px}
+.app-shell .report-stat-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.app-shell .report-stat-grid b{font-size:18px!important}
+@keyframes aethereye-scene-reveal{from{opacity:.55;filter:brightness(.7)}to{opacity:1;filter:brightness(1)}}
+@media(max-width:1450px){
+ .app-shell .workspace{grid-template-columns:minmax(240px,260px) minmax(0,1fr) minmax(330px,350px)}
+ .app-shell .workspace:has(.side-left.collapsed){grid-template-columns:0 minmax(0,1fr) minmax(330px,350px)}
+ .app-shell .header-bar{gap:14px}
+ .app-shell .header-end{gap:10px}
+ .app-shell .nav-btn{min-width:102px}
+}
+@media(max-width:1280px){
+ .app-shell .header-bar{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px 16px;min-height:112px}
+ .app-shell .brand{grid-column:1;grid-row:1}
+ .app-shell .header-end{grid-column:2;grid-row:1}
+ .app-shell .main-tabs{grid-column:1/-1;grid-row:2;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));width:100%;min-height:44px}
+ .app-shell .nav-btn{width:100%;min-width:0}
+ .app-shell .workspace{grid-template-columns:minmax(235px,260px) minmax(0,1fr);min-height:0}
+ .app-shell .workspace:has(.side-left.collapsed){grid-template-columns:0 minmax(0,1fr)}
+ .app-shell .central{grid-column:2;grid-row:1;min-height:790px}
+ .app-shell .side-left{grid-column:1;grid-row:1/span 2}
+ .app-shell .right-pane{grid-column:2;grid-row:2;max-height:none;min-height:0;border-top:1px solid #284f68}
+ .app-shell .intel-scroll{display:block}
+ .app-shell .right-top{padding:22px}
+ .app-shell .right-top h2{margin:12px 0}
+ .app-shell .analytics-big{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:850px){
+ .app-shell .header-bar{padding:12px;gap:12px}
+ .app-shell .header-date,.app-shell .live-tag{display:none}
+ .app-shell .workspace,.app-shell .workspace:has(.side-left.collapsed){display:flex;flex-direction:column}
+ .app-shell .central{order:1;min-height:0;width:100%}
+ .app-shell .right-pane{order:2;width:100%;max-height:none;min-height:0}
+ .app-shell .side-left,.app-shell .side-left.collapsed{order:3;display:flex;width:100%;height:auto;max-height:none;overflow:visible;padding:20px;border:0;border-top:1px solid #244b60}
+ .app-shell .side-left .metric-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .app-shell .stage{min-height:670px}
+ .app-shell .scene-title{top:80px;width:43%;max-width:310px}
+ .app-shell .view-controls{top:88px;right:12px;max-width:48%}
+ .app-shell .scene-viewport{inset:6% 0 7% 0}
+ .app-shell .lower-panel{min-height:140px}
+ .app-shell .report-stat-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .app-shell .right-bottom{position:static}
+}
+@media(max-width:600px){
+ .app-shell .header-bar{grid-template-columns:minmax(0,1fr) auto;gap:8px}
+ .app-shell .brand-mark{width:36px;height:36px}
+ .app-shell .brand-name{font-size:24px}
+ .app-shell .brand-name sup{display:none}
+ .app-shell .brand-sub{display:none}
+ .app-shell .header-end .btn{min-width:48px;padding:0 12px}
+ .app-shell .header-end .btn span{display:none}
+ .app-shell .main-tabs{min-height:52px;gap:4px}
+ .app-shell .nav-btn{gap:6px;padding:8px 3px;font-size:14px!important}
+ .app-shell .nav-btn svg{width:16px;height:16px}
+ .app-shell .stage-head{padding:10px 12px;min-height:58px}
+ .app-shell .stage-head-right{gap:8px}
+ .app-shell .stage-overline{left:14px;right:14px;top:15px;display:flex;gap:10px;flex-wrap:wrap}
+ .app-shell .stage{min-height:760px}
+ .app-shell .scene-title{top:76px;left:15px;width:calc(100% - 30px);max-width:330px}
+ .app-shell .scene-title h1{font-size:clamp(28px,8vw,37px);line-height:1.05}
+ .app-shell .scene-title p{max-width:300px;line-height:1.55;margin-top:10px}
+ .app-shell .view-controls{top:255px;left:15px;right:15px;max-width:none;justify-content:flex-start}
+ .app-shell .view-controls>span{display:none}
+ .app-shell .seg{flex-direction:row;border-radius:24px}
+ .app-shell .seg button{padding:9px 11px}
+ .app-shell .scene-viewport{inset:22% -8% 11% -8%}
+ .app-shell .tool-rail{left:14px;top:auto;bottom:22px;flex-direction:row;padding:5px}
+ .app-shell .tool-rail div{width:1px;height:28px;margin:2px}
+ .app-shell .tool-rail button{width:40px;height:40px}
+ .app-shell .scene-legend{bottom:83px;left:15px;right:15px;gap:8px}
+ .app-shell .stage-bottom-right{bottom:16px;right:14px;max-width:45%}
+ .app-shell .twod-stage{top:42%;left:4%;width:92%;aspect-ratio:1.5}
+ .app-shell .globe-hud{bottom:140px;left:15px;max-width:calc(100% - 30px);padding:14px 18px;background:#061b2ade}
+ .app-shell .coordinate{font-size:18px!important}
+ .app-shell .descend-btn{min-height:46px}
+ .app-shell .lower-panel{display:grid;grid-template-columns:1fr;gap:10px;padding:18px 14px}
+ .app-shell .timeline-left{width:100%}
+ .app-shell .timeline-left strong{margin:4px 0}
+ .app-shell .timeline-main{width:100%;min-width:0}
+ .app-shell .timeline-labels span{font-size:14px!important}
+ .app-shell .compare-launch{width:100%;justify-content:center}
+ .app-shell .foot-status{padding:12px}
+ .app-shell .right-top{padding:20px 16px}
+ .app-shell .intel-tabs{padding:0 6px}
+ .app-shell .intel-tabs button{font-size:14px!important;padding:12px 4px}
+ .app-shell .intel-scroll{padding:16px}
+ .app-shell .metric-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .app-shell .full-stage-content{padding:70px 18px 35px}
+ .app-shell .full-stage-content h1{font-size:clamp(32px,9vw,45px)}
+ .app-shell .analytics-big,.app-shell .exports-grid{grid-template-columns:1fr}
+ .app-shell .file-pair,.app-shell .form-grid,.app-shell .report-images{grid-template-columns:1fr}
+ .app-shell .modal-backdrop{padding:8px}
+ .app-shell .modal{padding:18px;max-height:calc(100dvh - 16px)}
+ .app-shell .modal-actions{flex-direction:column}
+ .app-shell .report-stat-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .app-shell .report-stat-grid b{font-size:17px!important}
+ .app-shell .toast{max-width:calc(100% - 20px);width:max-content;white-space:normal}
+}
+@media(prefers-reduced-motion:reduce){
+ .app-shell .scene-viewport canvas{animation:none!important}
+ html{scroll-behavior:auto}
+}
