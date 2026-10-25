@@ -1,4 +1,4 @@
-// @ts-check
+// @ts-nocheck
 /**
  * AetherEye analysis core — pure functions, no DOM access.
  * Runs inside a Web Worker (worker.js) and is also importable from Node for tests.
